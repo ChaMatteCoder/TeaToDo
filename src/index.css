@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #2f3029;
+  background: #fbf8f0;
+  --color-bg: #fbf8f0;
+  --color-surface: #fffdf7;
+  --color-surface-muted: #f4ecd8;
+  --color-primary: #587039;
+  --color-primary-dark: #2f3d24;
+  --color-accent: #cfb98e;
+  --color-text: #222b1c;
+  --color-muted: #6f6a5f;
+  --color-border: rgba(34, 43, 28, 0.12);
+  --color-success: #587039;
+  --color-warning: #d69328;
+  --font-scale: 1;
+  --card-radius: 30px;
+  --card-shadow: 0 12px 30px rgba(89, 74, 49, 0.07);
+  --icon-radius: 999px;
+  --density-pad: 1;
+  --custom-wallpaper: none;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: calc(16px * var(--font-scale));
+}
+
+#root::before {
+  background-image: var(--custom-wallpaper);
+  background-position: right 10% bottom 8%;
+  background-repeat: no-repeat;
+  background-size: min(42vw, 560px);
+  content: '';
+  inset: 0;
+  opacity: var(--wallpaper-opacity, 0);
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+#root > * {
+  position: relative;
+  z-index: 1;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+select {
+  color: inherit;
+}
+
+::selection {
+  background: #dbe6c7;
+  color: #2f3d24;
+}
+
+.preference-surface {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.preference-muted {
+  background: var(--color-surface-muted);
+}
+
+.preference-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.preference-icon {
+  border-radius: var(--icon-radius);
+}
+
+[data-density='compact'] .density-pad {
+  padding: calc(1rem * var(--density-pad));
+}
+
+[data-density='airy'] .density-gap {
+  gap: 1.25rem;
+}
+
+[data-card-style='minimal'] .shadow-card,
+[data-card-style='minimal'] .shadow-soft {
+  box-shadow: none;
+}
+
+[data-card-style='defined'] .shadow-card {
+  box-shadow: 0 8px 22px rgba(89, 74, 49, 0.04);
+}
+
+[data-theme] .bg-tea-700,
+[data-theme] .bg-tea-600 {
+  background-color: var(--color-primary) !important;
+}
+
+[data-theme] .bg-tea-800,
+[data-theme] .bg-tea-900 {
+  background-color: var(--color-primary-dark) !important;
+}
+
+[data-theme] .bg-tea-100,
+[data-theme] .bg-tea-50,
+[data-theme] .bg-oat {
+  background-color: var(--color-surface-muted) !important;
+}
+
+[data-theme] .bg-linen,
+[data-theme] .bg-white\/72,
+[data-theme] .bg-white\/74,
+[data-theme] .bg-white\/78,
+[data-theme] .bg-white\/82 {
+  background-color: color-mix(in srgb, var(--color-surface) 82%, transparent) !important;
+}
+
+[data-theme] .text-tea-900,
+[data-theme] .text-tea-950,
+[data-theme] .text-tea-800 {
+  color: var(--color-text) !important;
+}
+
+[data-theme] .text-tea-700,
+[data-theme] .text-tea-600,
+[data-theme] .text-tea-500 {
+  color: var(--color-primary) !important;
+}
+
+[data-theme] .text-stone-500,
+[data-theme] .text-stone-600 {
+  color: var(--color-muted) !important;
+}
+
+[data-theme] .border-tea-900\/10,
+[data-theme] .border-tea-900\/15 {
+  border-color: var(--color-border) !important;
+}
+
+[data-icon-shape='soft'] .rounded-full,
+[data-icon-shape='square'] .rounded-full {
+  border-radius: var(--icon-radius);
+}
+
+.teatodo-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-surface-muted);
+}
+
+.teatodo-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.teatodo-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-surface-muted);
+  border-radius: 999px;
+}
+
+.teatodo-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border: 2px solid var(--color-surface-muted);
+  border-radius: 999px;
+}
+
+.teatodo-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
